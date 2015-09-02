@@ -1,9 +1,9 @@
-Name: play time 
+Name: Satantango 
 
-			   Run time: 200 
+               Run time: 435 
 
-			   Language: french 
+               Language: Hungarian I think 
 
-			   Lead Actor: tati 
+               Lead Actor: Bela Tarr 
 
-			   Genre: comedy 
+               Genre: Drama 
