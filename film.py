@@ -1,3 +1,6 @@
+from reportlab.pdfgen import canvas
+
+
 class Film(object):
 	''' Attributes:
 	        name: A string, name of the Film
@@ -17,7 +20,7 @@ class Film(object):
 
 
 class ExportToText(object):
-	"""Exports details of film to text file"""
+	'''Exports details of film to text file'''
 	def __init__(self, film):
 		_file = open('film_details.txt', 'w')
 		_file.write(
@@ -31,6 +34,18 @@ class ExportToText(object):
 			   	                       film.language,
 			   	                       film.lead_actor,
 			   	                       film.genre))
+
+
+class ExportToPdf(object):
+	'''Exports details of film to pdf file'''
+	def __init__(self, film):
+		_canvas = canvas.Canvas('film_details.pdf')
+		_canvas.drawString(1, 825, 'Name: {}'.format(film.name))
+		_canvas.drawString(1, 800, 'Run time: {}'.format(film.run_time))
+		_canvas.drawString(1, 775, 'Language: {}'.format(film.language))
+		_canvas.drawString(1, 750, 'Lead actor: {}'.format(film.lead_actor))
+		_canvas.drawString(1, 725, 'Genre: {}'.format(film.genre))
+		_canvas.save()
 		
 def main():
 	print 'Enter name of film:'
@@ -50,6 +65,8 @@ def main():
 	option = input()
 	if option == 1:
 		ExportToText(movie)
+	elif option == 2:
+		ExportToPdf(movie)
 
 if __name__ == '__main__':
 	main()
