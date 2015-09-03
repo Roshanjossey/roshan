@@ -30,6 +30,7 @@ def main():
     movie['genre'] = genre
     # movie = Film(name, run_time, language, lead_actor, genre)
     print 'Which format should the data be converted to?'
+    print 'Following plugins available'
     plugins = importPluginModulesIn('plugins')
     for x in plugins:
         print x
