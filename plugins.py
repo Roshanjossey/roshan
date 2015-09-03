@@ -16,7 +16,9 @@ class Export(object):
 
 
 class ExportToText(Export):
-    '''Exports details of film to text file'''
+    '''Exports details of film to text file
+
+    Returns an instance of ExportToText to export data to txt format'''
     def __init__(self, film):
         self.name = film.name
         self.run_time = film.run_time
@@ -25,6 +27,10 @@ class ExportToText(Export):
         self.genre = film.genre
 
     def export(self):
+            '''Exports details of film to text file
+
+            Data will be exported to txt format and stored in
+            a file named film_details.txt in the same folder'''
         _file = open('film_details.txt', 'w')
         _file.write(('Name: {0} \n'
                      'Run time: {1} \n'
@@ -38,7 +44,9 @@ class ExportToText(Export):
 
 
 class ExportToPdf(Export):
-    '''Exports details of film to pdf file'''
+    '''Exports details of film to pdf file
+
+    Returns an instance of ExportToPdf to export data to pdf format'''
     def __init__(self, film):
         self.name = film.name
         self.run_time = film.run_time
@@ -47,6 +55,10 @@ class ExportToPdf(Export):
         self.genre = film.genre
 
     def export(self):
+        '''Exports details of film to pdf file
+
+        Data will be exported to pdf format and stored in
+        a file named film_details.pdf in the same directory'''
         _canvas = canvas.Canvas('film_details.pdf')
         _canvas.drawString(1, 825, 'Name: {}'.format(self.name))
         _canvas.drawString(1, 800, 'Run time: {} minutes'.format(self.run_time))

@@ -1,4 +1,3 @@
-import export
 import plugins
 
 
@@ -33,10 +32,12 @@ def main():
     genre = raw_input()
     movie = Film(name, run_time, language, lead_actor, genre)
     print 'Which format should the data be converted to?'
+    print 'For example input \'ExportToPdf\''
     format = raw_input()
-    FormatClass = getattr(plugins, format)
-    movie_export = FormatClass(movie)
-    movie_export.export()
+    FormatClass = getattr(plugins, format)  # I'm using introspection here
+    # Looks for an attribute of plugins module with name input by user (format)
+    movie_export = FormatClass(movie)  # Creates an instance of desired class
+    movie_export.export()  # Calls function for exporting to required format
 
 if __name__ == '__main__':
     main()

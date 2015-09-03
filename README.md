@@ -37,7 +37,8 @@ $ workon roshan
 To run use
 $ python film.py
 ```
-give the neccessary details and choose an option corresponding file will be created in same directory
+give the neccessary details and choose an option corresponding file will be created in same directory.
+Options are name of export classes in plugins.py file like ExportToPdf, ExportToText
 
 It can be made extensible by adding classes to plugins.py file
 
