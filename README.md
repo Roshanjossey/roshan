@@ -2,24 +2,19 @@
 
 demo of typical excecution
 ```
-(roshan)nishika@nishika:~/project$ python film.py 
+(roshan)nishika@nishika:~/project1$ python film.py 
 Enter name of film:
-Play Time
+Satantango
 Enter run time in minutes:
-101
+435
 Enter language:
-French
+Hungary
 Enter lead_actor:
-Tati
+Bela Tarr
 Enter genre:
-Comedy
-Play Time 101 French Tati Comedy
+Drama
 Which format should the data be converted to?
-    1. Text
-    2. Pdf
-    3. Don't sweat it
- Enter your option
-2
+ExportToPdf
 (roshan)nishika@nishika:~/project$ ls
 film_details.pdf  film.py  README.md
 ```
@@ -43,3 +38,29 @@ To run use
 $ python film.py
 ```
 give the neccessary details and choose an option corresponding file will be created in same directory
+
+It can be made extensible by adding classes to plugins.py file
+
+example
+```
+class ExportToHtml(Export):
+    '''Exports details of film to html file'''
+    def __init__(self, film):
+        self.name = film.name
+        self.run_time = film.run_time
+        self.language = film.language
+        self.lead_actor = film.lead_actor
+        self.genre = film.genre
+
+    def export(self):
+        _file = open('film_details.html', 'w')
+        _file.write(('Name: {0} </br>'
+                     'Run time: {1} </br>'
+                     'Language: {2} </br>'
+                     'Lead Actor: {3} </br>'
+                     'Genre: {4} </br>').format(self.name,
+                                             self.run_time,
+                                             self.language,
+                                             self.lead_actor,
+                                             self.genre))
+```

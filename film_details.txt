@@ -1,9 +1,5 @@
-Name: Satantango 
-
-               Run time: 435 
-
-               Language: Hungarian I think 
-
-               Lead Actor: Bela Tarr 
-
-               Genre: Drama 
+Name: hi 
+Run time: 23 
+Language: ljk 
+Lead Actor: awer 
+Genre: cvz 
