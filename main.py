@@ -1,7 +1,9 @@
-import film
+from film import Film
+import re
 import inspect
 import glob, imp
 from os.path import join, basename, splitext
+
 
 def importPluginModulesIn(directory):
     modules = {}
@@ -28,17 +30,20 @@ def main():
     movie['language'] = language
     movie['lead_actor'] = lead_actor
     movie['genre'] = genre
-    # movie = Film(name, run_time, language, lead_actor, genre)
+    film = Film(name, run_time, language, lead_actor, genre)
     print 'Which format should the data be converted to?'
     print 'Following plugins available'
     plugins = importPluginModulesIn('plugins')
-    for x in plugins:
-        print x
-    print 'For example input \'export_pdf\''
-    format = raw_input()
-    for name, obj in inspect.getmembers(plugins[format]):
+    options = [x for x in plugins if re.match(r'export_\w+', x)]
+    for option_no, option_name in enumerate(options):
+        format_name = re.match(r'export_(\w+)', option_name)
+        format_name = format_name.group(1)
+        print option_no + 1, format_name
+    print 'Enter and option number'
+    _format = options[input() -1]
+    for name, obj in inspect.getmembers(plugins[_format]):
         if inspect.isclass(obj):
-            FormatClass = getattr(plugins[format], name)  # I'm using introspection here
+            FormatClass = getattr(plugins[_format], name)  # I'm using introspection here
             # Looks for an attribute of plugins module with name input by user (format)
             movie_export = FormatClass(movie)  # Creates an instance of desired class
             movie_export.export()  # Calls function for exporting to required format

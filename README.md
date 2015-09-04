@@ -15,12 +15,10 @@ Enter genre:
 Drama
 Which format should the data be converted to?
 Following plugins available
-export_txt
-export_pdf
-export
-For example input 'export_pdf'
-export_pdf
-
+1 txt
+2 pdf
+Enter and option number                                                              │
+2
 (roshan)nishika@nishika:~/project$ ls
 film_details.pdf  film.py  README.md
 ```
