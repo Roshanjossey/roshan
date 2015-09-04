@@ -41,7 +41,7 @@ $ source /usr/local/bin/virtualenvwrapper.sh
 $ workon roshan
 
 To run use
-$ python film.py
+$ python main.py
 ```
 give the neccessary details and choose an option corresponding file will be created in same directory.
 Options are name of export classes in plugins.py file like ExportToPdf, ExportToText
