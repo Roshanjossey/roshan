@@ -12,12 +12,5 @@ class ExportToText(Export):
         Data will be exported to txt format and stored in
         a file named film_details.txt in the same folder'''
         _file = open('film_details.txt', 'w')
-        _file.write(('Name: {0} \n'
-                     'Run time: {1} \n'
-                     'Language: {2} \n'
-                     'Lead Actor: {3} \n'
-                     'Genre: {4} \n').format(self.name,
-                                             self.run_time,
-                                             self.language,
-                                             self.lead_actor,
-                                             self.genre))
+        for field in self.film_details:
+            _file.write('{}: {}\n'.format(field, self.film_details[field]))

@@ -12,10 +12,10 @@ class ExportToPdf(Export):
 
         Data will be exported to pdf format and stored in
         a file named film_details.pdf in the same directory'''
+        
         _canvas = canvas.Canvas('film_details.pdf')
-        _canvas.drawString(1, 825, 'Name: {}'.format(self.name))
-        _canvas.drawString(1, 800, 'Run time: {} minutes'.format(self.run_time))
-        _canvas.drawString(1, 775, 'Language: {}'.format(self.language))
-        _canvas.drawString(1, 750, 'Lead actor: {}'.format(self.lead_actor))
-        _canvas.drawString(1, 725, 'Genre: {}'.format(self.genre))
+        y_co_ordinate = 825
+        for field in self.film_details:
+            _canvas.drawString(1, y_co_ordinate, '{}: {}'.format(field, self.film_details[field]))
+            y_co_ordinate -= 25
         _canvas.save()
