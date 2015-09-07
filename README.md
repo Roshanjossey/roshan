@@ -50,12 +50,6 @@ example add export_html.py to plugins folder with following code
 ```
 class ExportToHtml(Export):
     '''Exports details of film to html file'''
-    def __init__(self, film):
-        self.name = film['name']
-        self.run_time = film['run_time']
-        self.language = film['language']
-        self.lead_actor = film['lead_actor']
-        self.genre = film['genre']
 
     def export(self):
         _file = open('film_details.html', 'w')
