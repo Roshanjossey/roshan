@@ -24,12 +24,6 @@ def main():
     lead_actor = raw_input()
     print 'Enter genre:'
     genre = raw_input()
-    movie = {}
-    movie['name'] = name
-    movie['run_time'] = run_time
-    movie['language'] = language
-    movie['lead_actor'] = lead_actor
-    movie['genre'] = genre
     film = Film(name, run_time, language, lead_actor, genre)
     print 'Which format should the data be converted to?'
     print 'Following plugins available'
@@ -46,7 +40,7 @@ def main():
         if inspect.isclass(obj):
             FormatClass = getattr(plugins[_format], name)  # I'm using introspection here
             # Looks for an attribute of plugins module with name input by user (format)
-            movie_export = FormatClass(movie)  # Creates an instance of desired class
+            movie_export = FormatClass(film)  # Creates an instance of desired class
             movie_export.export()  # Calls function for exporting to required format
 
 if __name__ == '__main__':
