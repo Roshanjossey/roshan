@@ -39,7 +39,8 @@ def main():
     for name, obj in inspect.getmembers(plugins[_format])[1:]:
         if inspect.isclass(obj):
             FormatClass = getattr(plugins[_format], name)  # I'm using introspection here
-            # Looks for an attribute of plugins module with name input by user (format)
+            # Looks for required class in selected module in plugins package
+            # _format is name of selected module, name is name of class
             movie_export = FormatClass(film)  # Creates an instance of desired class
             movie_export.export()  # Calls function for exporting to required format
 

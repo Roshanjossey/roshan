@@ -53,13 +53,6 @@ class ExportToHtml(Export):
 
     def export(self):
         _file = open('film_details.html', 'w')
-        _file.write(('Name: {0} </br>'
-                     'Run time: {1} </br>'
-                     'Language: {2} </br>'
-                     'Lead Actor: {3} </br>'
-                     'Genre: {4} </br>').format(self.name,
-                                             self.run_time,
-                                             self.language,
-                                             self.lead_actor,
-                                             self.genre))
+        for field in self.film_details:
+            _file.write('{}: {} <br>'.format(field, self.film_details[field]))
 ```
