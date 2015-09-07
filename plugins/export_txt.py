@@ -1,16 +1,10 @@
-import export
+from plugins.export import Export
 
 
-class ExportToText(object):
+class ExportToText(Export):
     '''Exports details of film to text file
 
     Returns an instance of ExportToText to export data to txt format'''
-    def __init__(self, film):
-        self.name = film['name']
-        self.run_time = film['run_time']
-        self.language = film['language']
-        self.lead_actor = film['lead_actor']
-        self.genre = film['genre']
 
     def export(self):
         '''Exports details of film to text file

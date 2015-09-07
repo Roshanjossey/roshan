@@ -41,7 +41,8 @@ def main():
         print option_no + 1, format_name
     print 'Enter and option number'
     _format = options[input() -1]
-    for name, obj in inspect.getmembers(plugins[_format]):
+    print _format
+    for name, obj in inspect.getmembers(plugins[_format])[1:]:
         if inspect.isclass(obj):
             FormatClass = getattr(plugins[_format], name)  # I'm using introspection here
             # Looks for an attribute of plugins module with name input by user (format)

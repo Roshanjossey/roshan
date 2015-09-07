@@ -1,17 +1,11 @@
-import export
+from plugins.export import Export
 from reportlab.pdfgen import canvas
 
 
-class ExportToPdf(object):
+class ExportToPdf(Export):
     '''Exports details of film to pdf file
 
     Returns an instance of ExportToPdf to export data to pdf format'''
-    def __init__(self, film):
-        self.name = film['name']
-        self.run_time = film['run_time']
-        self.language = film['language']
-        self.lead_actor = film['lead_actor']
-        self.genre = film['genre']
 
     def export(self):
         '''Exports details of film to pdf file
